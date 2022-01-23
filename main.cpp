@@ -42,6 +42,8 @@ int	main( void ) {
 		std::cout << "Awaiting order..." << std::endl;
 		std::cout << "Available commands : ADD, SEARCH and EXIT" << std::endl;
 		getline(std::cin, input);
+		if (std::cin.eof())
+			break;
 		std::cout << std::endl;
 		if (input.compare("ADD") == 0)
 			phoneBook.addUser();
@@ -49,17 +51,19 @@ int	main( void ) {
 			if (phoneBook.printPhoneBookBriefInfos() == 0) {
 				std::cout << "Select the index of the user you want details on" << std::endl;
 				getline(std::cin, input);
+				if (std::cin.eof())
+					break;
 				std::cout << std::endl;
 				if (is_integer(input))
 					phoneBook.printUserInfos(atoi(input.c_str()));
 				else
-					std::cout << input << "is not a valid index" << std::endl;
+					std::cout << input << " is not a valid index" << std::endl;
 			}
 		}
 		else if (input.compare("EXIT") != 0)
 			std::cout << input << " is not a valid command" << std::endl;
 		std::cout << std::endl;
-	} while (input.compare("EXIT") != 0);
+	} while (input.compare("EXIT") != 0 && std::cin.eof() == 0);
 
 	return 0;
 }

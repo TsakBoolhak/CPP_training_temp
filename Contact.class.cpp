@@ -67,7 +67,9 @@ void	Contact::setInfos ( void ) {
 		do {
 			std::cout << "What is the " << field  << " of the contact you want to add?" << std::endl;
 			getline(std::cin, input);
-		}while (Contact::setField(input, index) != 0);
+			if (std::cin.eof())
+				return;
+		}while (Contact::setField(input, index) != 1);
 		std::cout << std::endl;
 		index++;
 	}while (index < SIZE);
