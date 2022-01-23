@@ -69,7 +69,7 @@ void	Contact::setInfos ( void ) {
 			getline(std::cin, input);
 			if (std::cin.eof())
 				return;
-		}while (Contact::setField(input, index) != 1);
+		}while (Contact::setField(input, index) != 0);
 		std::cout << std::endl;
 		index++;
 	}while (index < SIZE);
