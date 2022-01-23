@@ -20,8 +20,10 @@ void 	PhoneBook::addUser( void ) {
 
 	if (PhoneBook::size < CONTACT_LIST_MAXSIZE)
 		PhoneBook::size++;
-	else
+	else {
 		std::cout << "Warning: contact list full, had to delete user " << this->contactList[size - 1].getInfo(FIRST_NAME) << " " << this->contactList[size - 1].getInfo(LAST_NAME) << std::endl;
+	}
+
 	this->contactList[size - 1].setInfos();
 
 	return ;
@@ -30,18 +32,27 @@ void 	PhoneBook::addUser( void ) {
 int	PhoneBook::printUserInfos( int userIndex ) {
 
 	if (userIndex < 0 || userIndex >= PhoneBook::getSize()) {
+
 		if (PhoneBook::getSize() == 0)
 			std::cout << "PhoneBook is empty" << std::endl;
 		else
 			std::cout << "Avalaible indexes : [0-" << PhoneBook::getSize() - 1 << "]" << std::endl;
+
 		return -1;
 	}
 	else {
+
 		int	index = 0;
+
 		while (index < SIZE) {
-			if (this->contactList[userIndex].getInfo(index).empty())
-				return -1;
+
 			std::string field;
+
+			if (this->contactList[userIndex].getInfo(index).empty()) {
+
+				return -1;
+			}
+
 			switch (index)
 			{
 				case FIRST_NAME:
@@ -63,6 +74,7 @@ int	PhoneBook::printUserInfos( int userIndex ) {
 					field.clear();
 					break;
 			}
+
 			std::cout << field << this->contactList[userIndex].getInfo(index) << std::endl;
 			index++;
 		}
@@ -74,6 +86,7 @@ int	PhoneBook::printUserInfos( int userIndex ) {
 int	PhoneBook::printUserBriefInfos( int userIndex ) {
 
 	if (userIndex < 0 || userIndex >= PhoneBook::getSize()) {
+
 		if (PhoneBook::getSize() == 0)
 			std::cout << "PhoneBook is empty" << std::endl;
 		else
@@ -82,14 +95,17 @@ int	PhoneBook::printUserBriefInfos( int userIndex ) {
 		return -1;
 	}
 	else {
+
 		int			infosIndex = 0;
 		std::string	str;
 
 		std::cout << std::setw(10) << userIndex;
 		std::cout << "|";
 		while (infosIndex <= NICK_NAME) {
+
 			str = this->contactList[userIndex].getInfo(infosIndex);
 			if (str.empty()) {
+
 				std::cout << "Field is empty" << std::endl;
 
 				return -1;
