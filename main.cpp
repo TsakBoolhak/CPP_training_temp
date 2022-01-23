@@ -28,7 +28,7 @@ bool	is_integer(std::string str) {
 		if (nb * sign > std::numeric_limits<int>::max() || nb * sign < std::numeric_limits<int>::min())
 			return 0;
 	}
-	if (*it)
+	if (*it || it == str.begin())
 		return 0;
 	return 1;
 }
@@ -41,25 +41,33 @@ int	main( void ) {
 	do {
 		std::cout << "Awaiting order..." << std::endl;
 		std::cout << "Available commands : ADD, SEARCH and EXIT" << std::endl;
+		std::cout << "Enter a command : ";
 		getline(std::cin, input);
-		if (std::cin.eof())
-			break;
 		std::cout << std::endl;
+		if (std::cin.eof()) {
+			std::cout << "End Of File Reached. Program Now Quit" << std::endl;
+			return -1;
+		}
 		if (input.compare("ADD") == 0)
 			phoneBook.addUser();
 		else if (input.compare("SEARCH") == 0) {
 			if (phoneBook.printPhoneBookBriefInfos() == 0) {
-				std::cout << "Select the index of the user you want details on" << std::endl;
+				std::cout << std::endl << "Select the index of the user you want details on" << std::endl;
 				getline(std::cin, input);
-				if (std::cin.eof())
-					break;
+				if (std::cin.eof()) {
+					std::cout << "End Of File Reached. Program Now Quit" << std::endl;
+					return -1;
+				}
 				std::cout << std::endl;
 				if (is_integer(input))
 					phoneBook.printUserInfos(atoi(input.c_str()));
 				else
 					std::cout << input << " is not a valid index" << std::endl;
+				input.clear();
 			}
 		}
+		else if (input.empty())
+			std::cout << "Empty command" << std::endl;
 		else if (input.compare("EXIT") != 0)
 			std::cout << input << " is not a valid command" << std::endl;
 		std::cout << std::endl;

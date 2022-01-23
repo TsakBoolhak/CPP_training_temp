@@ -47,19 +47,23 @@ int	checkPhoneNumber(std::string number)
 int			Contact::setField( std::string str, int index) {
 
 	if (str.empty()) {
-		std::cout << "Error: Cannot add an empty field" << std::endl;
+		std::cout << "Error: Cannot add an empty field" << std::endl << std::endl;
 
 		return -1;
 	}
 	else if (index < 0 || index >= SIZE) {
-		std::cout << "Error: Invalid index (" << index << ")" << std::endl;
+		std::cout << "Error: Invalid index (" << index << ")" << std::endl << std::endl;
 
 		return -2;
 	}
 	else if (index == PHONE_NUMBER) {
+
 		int	check = checkPhoneNumber(str);
-		if (check != 0)
+
+		if (check != 0) {
+			std::cout << std::endl;
 			std::cout << "Invalid phone number";
+		}
 		switch (check) {
 			case 0:
 				break ;
@@ -76,8 +80,10 @@ int			Contact::setField( std::string str, int index) {
 				std::cout << std::endl;
 				break ;
 		}
-		if (check != 0)
+		if (check != 0) {
+			std::cout << std::endl;
 			return (check);
+		}
 	}
 	this->infos[index] = str;
 
@@ -117,10 +123,12 @@ void	Contact::setInfos ( void ) {
 		do {
 			std::cout << "What is the " << field  << " of the contact you want to add?" << std::endl;
 			getline(std::cin, input);
-			if (std::cin.eof())
-				return;
-			std::cout << std::endl;
+			if (std::cin.eof()) {
+				std::cout << "End Of File Reached. Program Now Quit" << std::endl;
+				return ;
+			}
 		} while (this->setField(input, index) != 0);
+		std::cout << std::endl;
 		index++;
 	}while (index < SIZE);
 
