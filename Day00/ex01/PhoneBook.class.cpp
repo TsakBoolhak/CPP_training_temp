@@ -21,7 +21,7 @@ void 	PhoneBook::addUser( void ) {
 	if (PhoneBook::size < CONTACT_LIST_MAXSIZE)
 		PhoneBook::size++;
 	else {
-		std::cout << "Warning: contact list full, had to delete user " << this->contactList[size - 1].getInfo(FIRST_NAME) << " " << this->contactList[size - 1].getInfo(LAST_NAME) << std::endl;
+		std::cout << "Warning: contact list full, had to delete user " << this->contactList[size - 1].getInfo(Contact::FIRST_NAME) << " " << this->contactList[size - 1].getInfo(Contact::LAST_NAME) << std::endl;
 	}
 
 	this->contactList[size - 1].setInfos();
@@ -44,7 +44,7 @@ int	PhoneBook::printUserInfos( int userIndex ) {
 
 		int	index = 0;
 
-		while (index < SIZE) {
+		while (index < Contact::SIZE) {
 
 			std::string field;
 
@@ -55,19 +55,19 @@ int	PhoneBook::printUserInfos( int userIndex ) {
 
 			switch (index)
 			{
-				case FIRST_NAME:
+				case Contact::FIRST_NAME:
 					field = "First Name : ";
 					break;
-				case LAST_NAME:
+				case Contact::LAST_NAME:
 					field = "Last Name : ";
 					break;
-				case NICK_NAME:
+				case Contact::NICK_NAME:
 					field = "Nick Name : ";
 					break;
-				case PHONE_NUMBER:
+				case Contact::PHONE_NUMBER:
 					field = "Phone Number : ";
 					break;
-				case DARKEST_SECRET:
+				case Contact::DARKEST_SECRET:
 					field = "Darkest Secret : ";
 					break;
 				default:
@@ -101,7 +101,7 @@ int	PhoneBook::printUserBriefInfos( int userIndex ) {
 
 		std::cout << std::setw(10) << userIndex;
 		std::cout << "|";
-		while (infosIndex <= NICK_NAME) {
+		while (infosIndex <= Contact::NICK_NAME) {
 
 			str = this->contactList[userIndex].getInfo(infosIndex);
 			if (str.empty()) {
@@ -115,7 +115,7 @@ int	PhoneBook::printUserBriefInfos( int userIndex ) {
 				str[9] = '.';
 			std::cout << std::right;
 			std::cout << std::setw(10) << str;
-			if (infosIndex < NICK_NAME)
+			if (infosIndex < Contact::NICK_NAME)
 				std::cout << "|";
 			infosIndex++;
 		}
