@@ -1,6 +1,6 @@
 // ************************************************************************** //
 //                                                                            //
-//                Account.cpp for GlobalBanksters United                //
+//                Account.cpp for GlobalBanksters United                      //
 //                Created on  : Mon Jan 24 01:08:15 2022                      //
 //                Last update : Mon Jan 24 05:25:06 2022                      //
 //       Made by : Aurelien "Tsak" Cabiac <real_account@realmail.com>         //
@@ -17,10 +17,10 @@ static void	displayLabelValue( const char *const label, const int value ) {
 		return ;
 }
 
-/******************************************************************************/
-/*                                  Public                                    */
-/*                                  Members                                   */
-/******************************************************************************/
+// ************************************************************************** //
+//                                  Public                                    //
+//                                  Members                                   //
+// ************************************************************************** //
 
 Account::Account( int initial_deposit ) : _accountIndex ( _nbAccounts ), _amount ( initial_deposit ), _nbDeposits ( 0 ), _nbWithdrawals ( 0 ) {
 
@@ -177,10 +177,10 @@ void	Account::displayStatus( void ) const {
 }
 
 
-/******************************************************************************/
-/*                                 Private                                    */
-/*                                 Members                                    */
-/******************************************************************************/
+// ************************************************************************** //
+//                                 Private                                    //
+//                                 Members                                    //
+// ************************************************************************** //
 
 Account::Account( void ) :  _accountIndex ( _nbAccounts ), _amount ( 0 ), _nbDeposits ( 0 ), _nbWithdrawals ( 0 ) {
 
