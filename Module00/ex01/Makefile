@@ -18,7 +18,7 @@ RM			= rm -f
 	${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
 
 ${NAME}:		 ${OBJS}
-	${CC} ${CFLAGS} ${OBJS} -pthread -o ${NAME}
+	${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
 all:			${NAME}
 
@@ -29,8 +29,6 @@ fclean:			clean
 	${RM} ${NAME}
 
 re:				fclean all
-
-re_bonus:		fclean_bonus bonus
 
 -include ${DEP}
 
