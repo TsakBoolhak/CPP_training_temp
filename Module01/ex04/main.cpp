@@ -13,13 +13,16 @@ namespace _myTools {
 		AC_IS_INVALID = 2,
 		INFILE_IS_INVALID = 3,
 		OUTFILE_IS_INVALID = 4,
-		ENUM_SIZE = 5
+		EMPTY_TO_ERASE_FIELD = 5,
+		ENUM_SIZE = 6
 	} t_ret_value;
 
 	void	replaceLoop( std::string &str , std::string &to_erase, std::string &to_insert) {
 
 		std::size_t			found = 0;
 
+		if (to_erase.empty())
+			return ;
 		while ( (found = str.find(to_erase, found)) != std::string::npos && found <= str.length())
 		{
 
@@ -67,9 +70,11 @@ namespace _myTools {
 		if (!av)
 			return _myTools::AV_IS_NULL;
 
-		if ( ac != 4 )
+		else if ( ac != 4 )
 			return _myTools::AC_IS_INVALID;
 
+		else if (*(av[2]) == '\0')
+			return _myTools::EMPTY_TO_ERASE_FIELD;
 		else {
 
 			std::ifstream		infile;
@@ -107,7 +112,8 @@ namespace _myTools {
 			"Somehow argv is NULL",
 			"Invalid number of arguments",
 			"Invalid infile",
-			"Couldn't create outfile"
+			"Couldn't create outfile",
+			"Second argument can not be empty"
 		};
 
 		if (ret < _myTools::SUCCESS || ret >= _myTools::ENUM_SIZE)
