@@ -1,5 +1,6 @@
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
 Fixed::Fixed( void ) : rawBits ( 0 ) {
 
@@ -17,12 +18,14 @@ Fixed::Fixed( Fixed &src ) {
 
 Fixed::Fixed( const int value ) {
 
-	this->rawBits = value << this->decimalPartSize;
+	std::cout << "Int constructor called" << std::endl;
+	this->rawBits = (int)( roundf( value * ( 1 << this->decimalPartSize ) ) );
 }
 
 Fixed::Fixed( const float value ) {
 
-	this->rawBits = (int)(value << this->decimalPartSize;
+	std::cout << "Float constructor called" << std::endl;
+	this->rawBits = (int)( value * ( 1 << this->decimalPartSize ) );
 }
 
 Fixed::~Fixed( void ) {
@@ -48,12 +51,29 @@ void	Fixed::setRawBits ( int const raw) {
 	return ;
 }
 
+int		Fixed::toInt( void ) const {
+
+	return this->rawBits / (1 << this->decimalPartSize);
+}
+
+float	Fixed::toFloat( void ) const {
+
+	return double(this->rawBits) / double(1 << this->decimalPartSize);
+}
+
 Fixed &	Fixed::operator=( Fixed const & rhs ) {
 
 	std::cout << "Copy assignement operator called" << std::endl;
 
-	this->rawBits = rhs.getRawBits();
+	if (this != &rhs)
+		this->rawBits = rhs.getRawBits();
 
 	return *this;
 }
 
+std::ostream & operator<<( std::ostream& os, const Fixed& rhs ) {
+
+	std::cout << rhs.toFloat();
+	
+	return os;
+}
