@@ -53,12 +53,14 @@ void	Fixed::setRawBits ( int const raw) {
 
 int		Fixed::toInt( void ) const {
 
+	std::cout << "toInt member function called" << std::endl;
 	return this->rawBits / (1 << this->decimalPartSize);
 }
 
 float	Fixed::toFloat( void ) const {
 
-	return double(this->rawBits) / double(1 << this->decimalPartSize);
+	std::cout << "toFloat member function called" << std::endl;
+	return (double)(this->rawBits) / (double)(1 << this->decimalPartSize);
 }
 
 Fixed &	Fixed::operator=( Fixed const & rhs ) {
