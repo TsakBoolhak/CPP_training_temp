@@ -93,32 +93,32 @@ Fixed &	Fixed::operator=( Fixed const & rhs ) {
 	return *this;
 }
 
-bool	Fixed::operator>( Fixed const & rhs ) {
+bool	Fixed::operator>( Fixed const & rhs ) const {
 
 	return this->rawBits > rhs.getRawBits();
 }
 
-bool	Fixed::operator<( Fixed const & rhs ) {
+bool	Fixed::operator<( Fixed const & rhs ) const {
 
 	return this->rawBits < rhs.getRawBits();
 }
 
-bool	Fixed::operator>=( Fixed const & rhs ) {
+bool	Fixed::operator>=( Fixed const & rhs ) const {
 
 	return this->rawBits >= rhs.getRawBits();
 }
 
-bool	Fixed::operator<=( Fixed const & rhs ) {
+bool	Fixed::operator<=( Fixed const & rhs ) const {
 
 	return this->rawBits <= rhs.getRawBits();
 }
 
-bool	Fixed::operator==( Fixed const & rhs ) {
+bool	Fixed::operator==( Fixed const & rhs ) const {
 
 	return this->rawBits == rhs.getRawBits();
 }
 
-bool	Fixed::operator!=( Fixed const & rhs ) {
+bool	Fixed::operator!=( Fixed const & rhs ) const {
 
 	return this->rawBits != rhs.getRawBits();
 }
