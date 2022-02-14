@@ -56,17 +56,43 @@ void	ClapTrap::takeDamage( unsigned int amount ) {
 	else if ( amount >= this->_hitPoints) {
 
 		std::cout << " has taken " << this->_hitPoints << " damage and falls uncouncious on the ground as he has 0 hitpoints left!" << std::endl;
-		this->hitpoints = 0;
+		this->hitPoints = 0;
 	}
 	else {
 
-	this->hitpoints -= amount;
-	std::cout << " has taken " << amount << " damage, he now has " << this->hitpoints << " hitpoints left!" << std::endl;
+	this->hitPoints -= amount;
+	std::cout << " has taken " << amount << " damage, he now has " << this->hitPoints << " hitpoints left!" << std::endl;
 	}
 
 	return;
 }
 
-	void	beRepaired( unsigned int amount );
+void	Claptrap::beRepaired( unsigned int amount ) {
 
-	Claptrap &	operator=( Claptrap const & rhs );
+	std::cout << this->_name;
+	if ( this->_hitPoints == 0 ) {
+
+		std::cout << "would have try to repair himself if he wasn't uncouncious!" << std::endl;
+	}
+	else if (this->_energyPoints == 0) {
+
+		std::cout << "is trying to repair himself but feels too tired to activate this protocol!" << std::endl; 
+	}
+	else {
+
+		this->_hitPoints = std::numeric_limits<unsigned int>::max - amount < this->_hitPoints ? std::numeric_limits<unsigned int>::max : this->_hitPoints + amount;
+		this->_energyPoints--;
+		std::cout << "has activated the repair protocol with a voltage of " << amout << "V he now has " << this->_hitPoints << " hit points and " << this->_energyPoints << " energy points left!" << std::endl;
+	}
+}
+
+Claptrap &	Claptrap::operator=( Claptrap const & rhs ) {
+
+	if (this != rhs) {
+
+		this->_hitPoints = rhs._hitPoints;
+		this->_energyPoints = rhs._energyPoints;
+		this->_attackDamage = rhs._attackDamage;
+	}
+	return *this;
+}
