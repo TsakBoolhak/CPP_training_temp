@@ -7,15 +7,15 @@ class Fixed {
 public :
 
 	Fixed( void );
-	Fixed( Fixed &src );
+	Fixed( Fixed const &src );
 	Fixed( const int value);
 	Fixed( const float value);
 	~Fixed( void );
 
 	int	getRawBits( void ) const;
 	int getDecimalPartSize( void );
-	int	getDecimalPart( void) const;
-	void	setRawBits( int const raw);
+	int	getDecimalPart( void ) const;
+	void	setRawBits( int const raw );
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
 

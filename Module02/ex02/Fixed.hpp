@@ -7,15 +7,15 @@ class Fixed {
 public :
 
 	Fixed( void );
-	Fixed( const Fixed &src );
-	Fixed( const int value);
-	Fixed( const float value);
+	Fixed( Fixed const &src );
+	Fixed( const int value );
+	Fixed( const float value );
 	~Fixed( void );
 
 	int	getRawBits( void ) const;
 	int getDecimalPartSize( void );
-	int	getDecimalPart( void) const;
-	void	setRawBits( int const raw);
+	int	getDecimalPart( void ) const;
+	void	setRawBits( int const raw );
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
 
@@ -26,12 +26,12 @@ public :
 
 	Fixed &	operator=( Fixed const & rhs );
 
-	bool	operator>( Fixed const & rhs );
-	bool	operator<( Fixed const & rhs );
-	bool	operator>=( Fixed const & rhs );
-	bool	operator<=( Fixed const & rhs );
-	bool	operator==( Fixed const & rhs );
-	bool	operator!=( Fixed const & rhs );
+	bool	operator>( Fixed const & rhs ) const;
+	bool	operator<( Fixed const & rhs ) const;
+	bool	operator>=( Fixed const & rhs ) const;
+	bool	operator<=( Fixed const & rhs ) const;
+	bool	operator==( Fixed const & rhs ) const;
+	bool	operator!=( Fixed const & rhs ) const;
 
 	Fixed operator+( Fixed const & rhs );
 	Fixed operator-( Fixed const & rhs );
@@ -50,6 +50,6 @@ private :
 
 };
 
-std::ostream & operator<<( std::ostream& os, const Fixed& fixedPoint );
+std::ostream & operator<<( std::ostream& os, Fixed const & fixedPoint );
 
 #endif
