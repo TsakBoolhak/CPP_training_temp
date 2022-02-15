@@ -21,6 +21,7 @@ Fixed::Fixed( Fixed const &src ) : rawBits ( 0 ) {
 Fixed::Fixed( const int value ) {
 
 	std::cout << "Int constructor called" << std::endl;
+
 	this->rawBits = value * ( 1 << Fixed::decimalPartSize );
 
 	return ;
@@ -29,6 +30,7 @@ Fixed::Fixed( const int value ) {
 Fixed::Fixed( const float value ) {
 
 	std::cout << "Float constructor called" << std::endl;
+
 	this->rawBits = roundf( value * ( 1 << Fixed::decimalPartSize ) );
 
 	return ;
@@ -73,7 +75,7 @@ Fixed &	Fixed::operator=( Fixed const & rhs ) {
 	return *this;
 }
 
-std::ostream & operator<<( std::ostream& os, const Fixed& rhs ) {
+std::ostream & operator<<( std::ostream& os, const Fixed & rhs ) {
 
 	os << rhs.toFloat();
 	

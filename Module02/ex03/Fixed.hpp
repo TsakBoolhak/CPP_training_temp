@@ -7,7 +7,7 @@ class Fixed {
 public :
 
 	Fixed( void );
-	Fixed( const Fixed &src );
+	Fixed( const Fixed & src );
 	Fixed( const int value);
 	Fixed( const float value);
 	~Fixed( void );
@@ -50,6 +50,6 @@ private :
 
 };
 
-std::ostream & operator<<( std::ostream& os, const Fixed& fixedPoint );
+std::ostream & operator<<( std::ostream & os, const Fixed& fixedPoint );
 
 #endif

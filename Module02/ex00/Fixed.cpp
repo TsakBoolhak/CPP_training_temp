@@ -4,6 +4,7 @@
 Fixed::Fixed( void ) : rawBits ( 0 ) {
 
 	std::cout << "Default constructor called" << std::endl;
+
 	return ;
 }
 
@@ -12,6 +13,7 @@ Fixed::Fixed( Fixed const &src ) : rawBits ( 0 ) {
 	std::cout << "Copy constructor called" << std::endl;
 
 	*this = src;
+
 	return ;
 }
 
