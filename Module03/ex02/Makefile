@@ -1,12 +1,13 @@
 SRCS		=	main.cpp \
 				ClapTrap.cpp \
-				ScavTrap.cpp
+				ScavTrap.cpp \
+				FragTrap.cpp
 
 OBJS		= ${SRCS:.cpp=.o}
 
 DEP			= ${OBJS:.o=.d}
 
-NAME		= Scavtrap
+NAME		= Fragtrap
 
 CC			= c++
 
