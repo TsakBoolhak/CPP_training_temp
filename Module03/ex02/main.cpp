@@ -26,6 +26,8 @@ int	main( void ) {
 	bob.beRepaired( 0 );
 	bill.beRepaired( 10 );
 
+	std::cout << std::endl;
+
 	defaultFragtrap.highFivesGuys();
 	bob.highFivesGuys();
 	bill.highFivesGuys();
@@ -77,6 +79,8 @@ int	main( void ) {
 
 	bob.attack( "Training Dummy" );
 	bob.beRepaired( 1 );
+
+	std::cout << std::endl;
 
 	defaultFragtrap.highFivesGuys();
 	bob.highFivesGuys();

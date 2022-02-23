@@ -26,6 +26,24 @@ int	main( void ) {
 	bob.beRepaired( 0 );
 	bill.beRepaired( 10 );
 
+	std::cout << std::endl;
+
+	defaultDiamondtrap.guardGate();
+	bob.guardGate();
+	bill.guardGate();
+
+	std::cout << std::endl;
+
+	defaultDiamondtrap.highFivesGuys();
+	bob.highFivesGuys();
+	bill.highFivesGuys();
+
+	std::cout << std::endl;
+
+	defaultDiamondtrap.whoAmI();
+	bob.whoAmI();
+	bill.whoAmI();
+
 	std::cout << "----------------------------------------------------------------------" << std::endl;
 
 	std::cout << std::endl << "--------------------------------TURN 2--------------------------------" << std::endl;
@@ -74,10 +92,23 @@ int	main( void ) {
 	bob.attack( "Training Dummy" );
 	bob.beRepaired( 1 );
 
-	std::cout << "----------------------------------------------------------------------" << std::endl << std::endl;
+	defaultDiamondtrap.guardGate();
+	bob.guardGate();
+	bill.guardGate();
+
+	std::cout << std::endl;
+
+	defaultDiamondtrap.highFivesGuys();
+	bob.highFivesGuys();
+	bill.highFivesGuys();
+
+	std::cout << std::endl;
 
 	defaultDiamondtrap.whoAmI();
 	bob.whoAmI();
 	bill.whoAmI();
+
+	std::cout << "----------------------------------------------------------------------" << std::endl << std::endl;
+
 	return 0;
 }

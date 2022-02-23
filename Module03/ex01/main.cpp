@@ -26,6 +26,8 @@ int	main( void ) {
 	bob.beRepaired( 0 );
 	bill.beRepaired( 10 );
 
+	std::cout << std::endl;
+
 	defaultScavtrap.guardGate();
 	bob.guardGate();
 	bill.guardGate();
@@ -77,6 +79,9 @@ int	main( void ) {
 
 	bob.attack( "Training Dummy" );
 	bob.beRepaired( 1 );
+
+	std::cout << std::endl;
+
 	defaultScavtrap.guardGate();
 	bob.guardGate();
 	bill.guardGate();

@@ -3,9 +3,9 @@
 #include "ClapTrap.hpp"
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap( void ) : ClapTrap() {
+FragTrap::FragTrap( void ) : ClapTrap("Default FragTrap name") {
 
-	std::cout << "Default FragTrap constructor called" << std::endl;
+	std::cout << this->_name << " : Default FragTrap constructor called" << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
@@ -15,16 +15,16 @@ FragTrap::FragTrap( void ) : ClapTrap() {
 
 FragTrap::FragTrap( FragTrap const & src ) : ClapTrap( src._name ) {
 
-	std::cout << "Copy FragTrap constructor called" << std::endl;
-
 	*this = src;
+
+	std::cout << this->_name << " : Copy FragTrap constructor called" << std::endl;
 
 	return ;
 }
 
 FragTrap::FragTrap( std::string name ) : ClapTrap( name ){
 
-	std::cout << "String FragTrap constructor called" << std::endl;
+	std::cout << this->_name << " : String FragTrap constructor called" << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
@@ -34,7 +34,7 @@ FragTrap::FragTrap( std::string name ) : ClapTrap( name ){
 
 FragTrap::~FragTrap( void ) {
 
-	std::cout << "Fragtrap destructor called" << std::endl;
+	std::cout << this->_name << " : Fragtrap destructor called" << std::endl;
 
 	return ;
 }

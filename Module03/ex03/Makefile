@@ -8,7 +8,7 @@ OBJS		= ${SRCS:.cpp=.o}
 
 DEP			= ${OBJS:.o=.d}
 
-NAME		= Fragtrap
+NAME		= Diamondtrap
 
 CC			= c++
 
