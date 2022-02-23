@@ -3,9 +3,9 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( void ) : ClapTrap() {
+ScavTrap::ScavTrap( void ) : ClapTrap("Default ScavTrap name") {
 
-	std::cout << "Default ScavTrap constructor called" << std::endl;
+	std::cout << this->_name << " : Default ScavTrap constructor called" << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
@@ -15,16 +15,16 @@ ScavTrap::ScavTrap( void ) : ClapTrap() {
 
 ScavTrap::ScavTrap( ScavTrap const & src ) : ClapTrap( src._name ) {
 
-	std::cout << "Copy ScavTrap constructor called" << std::endl;
-
 	*this = src;
+
+	std::cout << this->_name << " : Copy ScavTrap constructor called" << std::endl;
 
 	return ;
 }
 
 ScavTrap::ScavTrap( std::string name ) : ClapTrap( name ){
 
-	std::cout << "String ScavTrap constructor called" << std::endl;
+	std::cout << this->_name << " : String ScavTrap constructor called" << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
@@ -34,7 +34,7 @@ ScavTrap::ScavTrap( std::string name ) : ClapTrap( name ){
 
 ScavTrap::~ScavTrap( void ) {
 
-	std::cout << "Scavtrap destructor called" << std::endl;
+	std::cout << this->_name << " : Scavtrap destructor called" << std::endl;
 
 	return ;
 }

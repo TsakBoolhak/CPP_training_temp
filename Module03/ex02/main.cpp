@@ -26,6 +26,10 @@ int	main( void ) {
 	bob.beRepaired( 0 );
 	bill.beRepaired( 10 );
 
+	defaultFragtrap.highFivesGuys();
+	bob.highFivesGuys();
+	bill.highFivesGuys();
+
 	std::cout << "----------------------------------------------------------------------" << std::endl;
 
 	std::cout << std::endl << "--------------------------------TURN 2--------------------------------" << std::endl;
@@ -48,7 +52,7 @@ int	main( void ) {
 
 	std::cout << "----------------------------------------------------------------------" << std::endl;
 
-	std::cout << "--------------------------------TURN 3--------------------------------" << std::endl;
+	std::cout << std::endl << "--------------------------------TURN 3--------------------------------" << std::endl;
 
 	bob.attack( "Training Dummy" );
 	bob.beRepaired( 1 );
@@ -73,6 +77,10 @@ int	main( void ) {
 
 	bob.attack( "Training Dummy" );
 	bob.beRepaired( 1 );
+
+	defaultFragtrap.highFivesGuys();
+	bob.highFivesGuys();
+	bill.highFivesGuys();
 
 	std::cout << "----------------------------------------------------------------------" << std::endl << std::endl;
 
