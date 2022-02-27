@@ -1,6 +1,7 @@
-# include <string>
-# include "AMateria.hpp"
-# include "ICharacter.hpp"
+#include <string>
+#include "AMateria.hpp"
+#include "Ice.hpp"
+#include "ICharacter.hpp"
 
 Ice::Ice( void ) : AMateria("ice") {
 
