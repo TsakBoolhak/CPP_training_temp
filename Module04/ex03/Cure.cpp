@@ -1,15 +1,17 @@
 #include <string>
+#include <iostream>
 #include "AMateria.hpp"
-#include "Ice.hpp"
+#include "Cure.hpp"
 #include "ICharacter.hpp"
 
-Cure::Cure( void ) : AMateria("ice") {
+Cure::Cure( void ) : AMateria("cure") {
 
 	return ;
 }
 
-Cure::Cure( Cure const & src ) AMateria("ice"); {
+Cure::Cure( Cure const & src ) : AMateria("cure") {
 
+	*this = src;
 	return ;
 }
 
@@ -30,7 +32,7 @@ Cure*	Cure::clone() const {
 	return new Cure();
 }
 
-void	use(ICharacter& target) {
+void	Cure::use(ICharacter& target) {
 
 	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 

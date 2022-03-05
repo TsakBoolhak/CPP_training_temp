@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
 
@@ -15,6 +16,7 @@ AMateria::AMateria( std::string const & type ) {
 
 AMateria::AMateria( AMateria const & src ) {
 
+	*this = src;
 	return ;
 }
 

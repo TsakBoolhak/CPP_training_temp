@@ -4,17 +4,19 @@
 # include <string>
 # include "ICharacter.hpp"
 
+class	ICharacter;
+
 class AMateria {
 
 protected:
 
 	AMateria( void );
+	AMateria( AMateria const & src );
 	std::string		type;
 
 public:
 
 	AMateria( std::string const & type );
-	AMateria( AMateria const & src );
 	virtual ~AMateria( void );
 
 	AMateria &	operator=( AMateria const & rhs );

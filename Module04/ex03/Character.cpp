@@ -31,26 +31,26 @@ std::string const &	Character::getName() const {
 	return this->name;
 }
 
-void	equip(AMateria* m) {
+void	Character::equip(AMateria* m) {
 
 	this->inv.equip(m);
 	return ;
 }
 
-void	unequip(int idx) {
+void	Character::unequip(int idx) {
 
-	this->inv.unequip();
+	this->inv.unequip(idx);
 	return ;
 }
 
-void	use(int idx, ICharacter& target) const {
+void	Character::use(int idx, ICharacter& target) {
 
 	this->inv.use(idx, target);
 
 	return ;
 }
 
-Character::Character &	operator=( Character const & src ) {
+Character &	Character::operator=( Character const & src ) {
 
 	if (this != &src) {
 

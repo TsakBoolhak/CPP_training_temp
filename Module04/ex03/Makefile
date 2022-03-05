@@ -1,20 +1,20 @@
 SRCS		=	main.cpp \
-				AAnimal.cpp \
-				Dog.cpp \
-				Cat.cpp \
-				WrongAnimal.cpp \
-				Brain.cpp \
-				WrongCat.cpp
+				AMateria.cpp \
+				Character.cpp \
+				Cure.cpp \
+				Ice.cpp \
+				Inventory.cpp \
+				MateriaSource.cpp
 
 OBJS		= ${SRCS:.cpp=.o}
 
 DEP			= ${OBJS:.o=.d}
 
-NAME		= Animalsv3
+NAME		= Materias
 
 CC			= c++
 
-CFLAGS		= -MMD -MD -Wall -Wextra -Werror -std=c++98 -I.
+CFLAGS		= -MMD -MD -Wall -Wextra -Werror -std=c++98 -g3 -I.
 
 RM			= rm -f
 

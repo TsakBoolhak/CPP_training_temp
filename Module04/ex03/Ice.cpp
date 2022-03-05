@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 #include "AMateria.hpp"
 #include "Ice.hpp"
 #include "ICharacter.hpp"
@@ -8,8 +9,9 @@ Ice::Ice( void ) : AMateria("ice") {
 	return ;
 }
 
-Ice::Ice( Ice const & src ) AMateria("ice"); {
+Ice::Ice( Ice const & src ) : AMateria("ice") {
 
+	*this = src;
 	return ;
 }
 
@@ -30,7 +32,7 @@ Ice*	Ice::clone() const {
 	return new Ice();
 }
 
-void	use(ICharacter& target) {
+void	Ice::use(ICharacter& target) {
 
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 

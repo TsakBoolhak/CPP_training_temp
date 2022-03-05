@@ -1,8 +1,12 @@
+#include <iostream>
+#include "Inventory.hpp"
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 Inventory::Inventory() {
 
 	for (size_t i = 0 ; i < INVENTORY_SIZE ; i++)
-		(this->inv)[i] = NULL;
+		this->materias[i] = NULL;
 
 	return;
 }
@@ -10,7 +14,7 @@ Inventory::Inventory() {
 Inventory::Inventory(Inventory const & src) {
 
 	for (size_t i = 0 ; i < INVENTORY_SIZE ; i++)
-		(this->inv)[i] = NULL;
+		this->materias[i] = NULL;
 	*this = src;
 
 	return ;
@@ -18,7 +22,10 @@ Inventory::Inventory(Inventory const & src) {
 Inventory::~Inventory() {
 
 	for (size_t i = 0 ; i < INVENTORY_SIZE ; i++)
-		delete (this->inv)[i];
+	{
+		if (this->materias[i])
+			delete (this->materias[i]);
+	}
 
 	return ;
 }
@@ -26,18 +33,19 @@ Inventory::~Inventory() {
 AMateria	*Inventory::getMateria(int idx) const {
 
 	if (idx >= 0 && idx < INVENTORY_SIZE)
-		return (this->inv)[idx];
+		return this->materias[idx];
 	else
 		return NULL;
 }
 
-void	equip(AMateria* m) {
+void	Inventory::equip(AMateria* m) {
 
-	size_t i = 0
-	for ( ; i < INVENTORY_SIZE && (this->inv)[i] != NULL ; i++)
+	size_t i = 0;
+
+	for ( ; i < INVENTORY_SIZE && this->materias[i] != NULL ; i++)
 		;
 	if ( i < INVENTORY_SIZE )
-		(this->inv)[i] = m;
+		this->materias[i] = m;
 	else
 		std::cout << "Inventory is full" << std::endl;
 
@@ -46,8 +54,8 @@ void	equip(AMateria* m) {
 
 void	Inventory::unequip(int idx) {
 
-	if ( idx >= 0 && idx < INVENTORY_SIZE && (this->inv)[idx] != NULL )
-		(this->idx)[idx] = NULL;
+	if ( idx >= 0 && idx < INVENTORY_SIZE && this->materias[idx] != NULL )
+		this->materias[idx] = NULL;
 	else if ( idx >= 0 && idx < INVENTORY_SIZE )
 		std::cout << "This inventory slot is alrdy empty" << std::endl;
 	else
@@ -58,22 +66,21 @@ void	Inventory::unequip(int idx) {
 
 void	Inventory::use(int idx, ICharacter& target) const {
 
-	if ( idx >= 0 && idx < INVENTORY_SIZE && (this->inv)[idx] != NULL )
-		(this->inv)[idx]->use(target);
-	else
-		AMateria::use(target);
+	if ( idx >= 0 && idx < INVENTORY_SIZE && this->materias[idx] != NULL )
+		this->materias[idx]->use(target);
 
 	return ;
 }
 
-Inventory &	Inventory::operator=( Inventory const & src ) {
+Inventory &	Inventory::operator=( Inventory const & rhs ) {
 
-	if (this != &src) {
+	if (this != &rhs) {
 
 		for (size_t i = 0 ; i < INVENTORY_SIZE ; i++) {
-
-			delete (this->inv)[i];
-			(this->inv)[i] = (rhs.inv)[i]->clone();
+			
+			if (this->materias[i])
+				delete this->materias[i];
+			this->materias[i] = rhs.materias[i]->clone();
 		}
 	}
 

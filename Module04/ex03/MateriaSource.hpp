@@ -4,6 +4,7 @@
 # include <string>
 # include "AMateria.hpp"
 # include "IMateriaSource.hpp"
+# include "Inventory.hpp"
 
 class MateriaSource : public IMateriaSource {
 
