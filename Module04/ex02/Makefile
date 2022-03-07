@@ -2,9 +2,7 @@ SRCS		=	main.cpp \
 				AAnimal.cpp \
 				Dog.cpp \
 				Cat.cpp \
-				WrongAnimal.cpp \
-				Brain.cpp \
-				WrongCat.cpp
+				Brain.cpp
 
 OBJS		= ${SRCS:.cpp=.o}
 
@@ -14,7 +12,7 @@ NAME		= Animalsv3
 
 CC			= c++
 
-CFLAGS		= -MMD -MD -Wall -Wextra -Werror -std=c++98 -I.
+CFLAGS		= -MMD -Wall -Wextra -Werror -std=c++98 -I.
 
 RM			= rm -f
 

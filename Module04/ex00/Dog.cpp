@@ -1,15 +1,17 @@
 #include "Dog.hpp"
+#include "Animal.hpp"
 #include <iostream>
 
-Dog::Dog( void ) : Animal() {
+Dog::Dog() : Animal() {
 
 	this->type = "Dog";
+
 	std::cout << this->type << " : Default Dog constructor called" << std::endl;
 
 	return ;
 }
 
-Dog::Dog( Dog const & src ) : Animal () {
+Dog::Dog( Dog const & src ) : Animal() {
 
 	*this = src;
 
@@ -18,7 +20,7 @@ Dog::Dog( Dog const & src ) : Animal () {
 	return ;
 }
 
-Dog::~Dog( void ) {
+Dog::~Dog() {
 
 	std::cout << this->type << " : Dog destructor called" << std::endl;
 

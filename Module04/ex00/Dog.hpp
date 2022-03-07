@@ -7,13 +7,13 @@ class Dog : public Animal {
 
 public :
 
-	Dog( void );
-	Dog( Dog const & src );
-	virtual ~Dog( void );
+					Dog();
+					Dog( Dog const & src );
+	virtual			~Dog();
 
 	virtual void	makeSound() const;
 
-	Dog &	operator=( Dog const & rhs );
+	Dog &			operator=( Dog const & rhs );
 
 };
 

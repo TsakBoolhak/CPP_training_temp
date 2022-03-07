@@ -1,7 +1,8 @@
 #include "Cat.hpp"
+#include "Animal.hpp"
 #include <iostream>
 
-Cat::Cat( void ) : Animal() {
+Cat::Cat() : Animal() {
 
 	this->type = "Cat";
 	std::cout << this->type << " : Default Cat constructor called" << std::endl;
@@ -18,7 +19,7 @@ Cat::Cat( Cat const & src ) : Animal() {
 	return ;
 }
 
-Cat::~Cat( void ) {
+Cat::~Cat() {
 
 	std::cout << this->type << " : Cat destructor called" << std::endl;
 

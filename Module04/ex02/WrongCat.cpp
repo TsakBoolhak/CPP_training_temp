@@ -1,7 +1,8 @@
 #include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
 #include <iostream>
 
-WrongCat::WrongCat( void ) : WrongAnimal() {
+WrongCat::WrongCat() : WrongAnimal() {
 
 	this->type = "WrongCat";
 	std::cout << this->type << " : Default WrongCat constructor called" << std::endl;
@@ -18,7 +19,7 @@ WrongCat::WrongCat( WrongCat const & src ) : WrongAnimal() {
 	return ;
 }
 
-WrongCat::~WrongCat( void ) {
+WrongCat::~WrongCat() {
 
 	std::cout << this->type << " : WrongCat destructor called" << std::endl;
 

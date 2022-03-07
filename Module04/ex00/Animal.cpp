@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-Animal::Animal( void ) : type ( "Some kind of animal" ) {
+Animal::Animal() : type ( "Some kind of animal" ) {
 
 	std::cout << this->type << " : Default Animal constructor called" << std::endl;
 
@@ -18,7 +18,7 @@ Animal::Animal( Animal const & src ) {
 	return ;
 }
 
-Animal::~Animal( void ) {
+Animal::~Animal() {
 
 	std::cout << this->type << " : Animal destructor called" << std::endl;
 
@@ -32,7 +32,7 @@ void	Animal::makeSound() const {
 	return ;
 }
 
-std::string const & Animal::getType() const {
+std::string const &	Animal::getType() const {
 
 	return type;
 }

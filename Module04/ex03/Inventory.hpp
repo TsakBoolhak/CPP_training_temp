@@ -10,18 +10,18 @@ class Inventory {
 	public:
 
 					Inventory();
-					Inventory(Inventory const & src);
+					Inventory( Inventory const & src );
 					~Inventory();
 
-		AMateria	*getMateria(int idx) const;
-		void		equip(AMateria* m);
-		void		unequip(int idx);
-		void		use(int idx, ICharacter& target) const;
+		AMateria	*getMateria( int idx ) const;
+		void		equip( AMateria* m );
+		void		unequip( int idx );
+		void		use( int idx, ICharacter& target ) const;
 		Inventory &	operator=( Inventory const & src );
 
 	private:
 
-		AMateria	*materias[INVENTORY_SIZE];
+		AMateria *	materias[INVENTORY_SIZE];
 };
 
 # endif

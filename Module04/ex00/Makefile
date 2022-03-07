@@ -13,7 +13,7 @@ NAME		= Animalsv1
 
 CC			= c++
 
-CFLAGS		= -MMD -MD -Wall -Wextra -Werror -std=c++98 -I.
+CFLAGS		= -MMD -Wall -Wextra -Werror -std=c++98 -I.
 
 RM			= rm -f
 

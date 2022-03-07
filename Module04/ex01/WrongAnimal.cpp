@@ -1,8 +1,7 @@
 #include "WrongAnimal.hpp"
 #include <iostream>
-#include <string>
 
-WrongAnimal::WrongAnimal( void ) : type ( "Some kind of wrong animal" ) {
+WrongAnimal::WrongAnimal() : type ( "Some kind of wrong animal" ) {
 
 	std::cout << this->type << " : Default WrongAnimal constructor called" << std::endl;
 
@@ -18,7 +17,7 @@ WrongAnimal::WrongAnimal( WrongAnimal const & src ) {
 	return ;
 }
 
-WrongAnimal::~WrongAnimal( void ) {
+WrongAnimal::~WrongAnimal() {
 
 	std::cout << this->type << " : WrongAnimal destructor called" << std::endl;
 

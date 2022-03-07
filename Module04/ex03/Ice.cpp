@@ -4,18 +4,19 @@
 #include "Ice.hpp"
 #include "ICharacter.hpp"
 
-Ice::Ice( void ) : AMateria("ice") {
+Ice::Ice() : AMateria( "ice" ) {
 
 	return ;
 }
 
-Ice::Ice( Ice const & src ) : AMateria("ice") {
+Ice::Ice( Ice const & src ) : AMateria( "ice" ) {
 
 	*this = src;
+
 	return ;
 }
 
-Ice::~Ice( void ) {
+Ice::~Ice() {
 
 	return ;
 }
@@ -32,7 +33,7 @@ Ice*	Ice::clone() const {
 	return new Ice();
 }
 
-void	Ice::use(ICharacter& target) {
+void	Ice::use( ICharacter& target ) {
 
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 

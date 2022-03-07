@@ -3,7 +3,7 @@
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
 
-AMateria::AMateria( void ) {
+AMateria::AMateria() {
 
 	return ;
 }
@@ -11,16 +11,18 @@ AMateria::AMateria( void ) {
 AMateria::AMateria( std::string const & type ) {
 
 	this->type = type;
+
 	return ;
 }
 
 AMateria::AMateria( AMateria const & src ) {
 
 	*this = src;
+
 	return ;
 }
 
-AMateria::~AMateria( void ) {
+AMateria::~AMateria() {
 
 	return ;
 }
@@ -40,5 +42,6 @@ std::string const & AMateria::getType() const {
 void	AMateria::use(ICharacter& target) {
 
 	std::cout << "* Looking intensively at " << target.getName() << " *" << std::endl;
+
 	return ;
 }

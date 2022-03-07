@@ -17,23 +17,23 @@ class Brain {
 
 public :
 
-	Brain();
-	Brain( Brain const & src );
-	~Brain();
+				Brain();
+				Brain( Brain const & src );
+				~Brain();
 
-	bool	printIdea( size_t index) const;
-	void	printIdeas() const;
-	bool	addIdea( std::string );
-	bool	deleteIdea( size_t index );
-	void	clearIdeas();
-	size_t	getIdeasCount() const;
-	std::string	getIdea(size_t index) const;
+	bool		printIdea( size_t index ) const;
+	void		printIdeas() const;
+	bool		addIdea( std::string );
+	bool		deleteIdea( size_t index );
+	void		clearIdeas();
+	size_t		getIdeasCount() const;
+	std::string	getIdea( size_t index ) const;
 
-	Brain &	operator=( Brain const & rhs );
+	Brain &		operator=( Brain const & rhs );
 
 private :
 
-	size_t	ideasCount;
+	size_t		ideasCount;
 	std::string	ideas[MAX_IDEAS];
 
 };

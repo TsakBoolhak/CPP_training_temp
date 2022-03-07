@@ -1,10 +1,13 @@
 #include "Cat.hpp"
+#include "AAnimal.hpp"
 #include <iostream>
 
-Cat::Cat( void ) : AAnimal() {
+Cat::Cat() : AAnimal() {
 
 	this->type = "Cat";
+
 	this->brain = new Brain();
+
 	std::cout << this->type << " : Default Cat constructor called" << std::endl;
 
 	return ;
@@ -13,6 +16,7 @@ Cat::Cat( void ) : AAnimal() {
 Cat::Cat( Cat const & src ) : AAnimal() {
 
 	this->brain = new Brain();
+
 	*this = src;
 
 	std::cout << this->type << " : Copy Cat constructor called" << std::endl;
@@ -20,10 +24,11 @@ Cat::Cat( Cat const & src ) : AAnimal() {
 	return ;
 }
 
-Cat::~Cat( void ) {
+Cat::~Cat() {
+
+	std::cout << this->type << " : Cat destructor called" << std::endl;
 
 	delete this->brain;
-	std::cout << this->type << " : Cat destructor called" << std::endl;
 
 	return ;
 }

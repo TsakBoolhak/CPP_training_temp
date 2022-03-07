@@ -1,10 +1,12 @@
 #include "Dog.hpp"
 #include <iostream>
 
-Dog::Dog( void ) : AAnimal() {
+Dog::Dog() : AAnimal() {
 
 	this->type = "Dog";
+
 	this->brain = new Brain();
+
 	std::cout << this->type << " : Default Dog constructor called" << std::endl;
 
 	return ;
@@ -13,6 +15,7 @@ Dog::Dog( void ) : AAnimal() {
 Dog::Dog( Dog const & src ) : AAnimal () {
 
 	this->brain = new Brain();
+
 	*this = src;
 
 	std::cout << this->type << " : Copy Dog constructor called" << std::endl;
@@ -20,10 +23,11 @@ Dog::Dog( Dog const & src ) : AAnimal () {
 	return ;
 }
 
-Dog::~Dog( void ) {
+Dog::~Dog() {
+
+	std::cout << this->type << " : Dog destructor called" << std::endl;
 
 	delete this->brain;
-	std::cout << this->type << " : Dog destructor called" << std::endl;
 
 	return ;
 }

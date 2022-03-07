@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Brain.hpp"
 
-Brain::Brain( void ) : ideasCount (0) {
+Brain::Brain() : ideasCount (0) {
 
 	std::cout << "Brain default constructor called" << std::endl;
 
@@ -18,14 +18,14 @@ Brain::Brain( Brain const & src ) {
 	return ;
 }
 
-Brain::~Brain( void ) {
+Brain::~Brain() {
 
 	std::cout << "Brain destructor called" << std::endl;
 
 	return ;
 }
 
-bool	Brain::printIdea( size_t index) const {
+bool	Brain::printIdea( size_t index ) const {
 
 	if ( this->ideasCount <= index )
 		return FAILURE;
@@ -43,7 +43,7 @@ void	Brain::printIdeas() const {
 	return ;
 }
 
-bool	Brain::addIdea( std::string newIdea) {
+bool	Brain::addIdea( std::string newIdea ) {
 
 	if ( newIdea.empty() || this->ideasCount >= MAX_IDEAS )
 		return FAILURE;
@@ -77,11 +77,13 @@ void	Brain::clearIdeas() {
 
 	size_t	i = this->ideasCount;
 
-	while (i > 0) {
+	while ( i > 0 ) {
+
 		this->deleteIdea(0);
 		i--;
 	}
-	this->ideasCount = 0;
+
+	return ;
 }
 
 size_t	Brain::getIdeasCount() const {
@@ -89,7 +91,7 @@ size_t	Brain::getIdeasCount() const {
 	return this->ideasCount;
 }
 
-std::string Brain::getIdea(size_t index) const {
+std::string Brain::getIdea( size_t index ) const {
 
 	std::string ret;
 
@@ -104,6 +106,7 @@ Brain &	Brain::operator=( Brain const & rhs ) {
 	if (this != &rhs) {
 
 		this->ideasCount = rhs.ideasCount;
+
 		for ( size_t i = 0 ; i < this->ideasCount ; i++ )
 			(this->ideas)[i] = (rhs.ideas)[i];
 	}

@@ -1,8 +1,9 @@
 #include "Animal.hpp"
+#include "Brain.hpp"
 #include <iostream>
 #include <string>
 
-Animal::Animal( void ) : type ( "Some kind of animal" ) {
+Animal::Animal() : type ( "Some kind of animal" ) {
 
 	std::cout << this->type << " : Default Animal constructor called" << std::endl;
 
@@ -18,7 +19,7 @@ Animal::Animal( Animal const & src ) {
 	return ;
 }
 
-Animal::~Animal( void ) {
+Animal::~Animal() {
 
 	std::cout << this->type << " : Animal destructor called" << std::endl;
 
@@ -34,7 +35,7 @@ void	Animal::makeSound() const {
 
 std::string const & Animal::getType() const {
 
-	return type;
+	return this->type;
 }
 
 Brain	*Animal::getBrain() const {
@@ -44,7 +45,6 @@ Brain	*Animal::getBrain() const {
 
 Animal &	Animal::operator=( Animal const & rhs ) {
 
-	std::cout << "LOL" << std::endl;
 	if (this != &rhs)
 		this->type = rhs.type;
 

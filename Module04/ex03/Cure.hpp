@@ -8,14 +8,14 @@ class Cure : public AMateria {
 
 public:
 
-	Cure( void );
-	Cure( Cure const & src );
-	virtual ~Cure( void );
+					Cure();
+					Cure( Cure const & src );
+	virtual 		~Cure();
 
-	Cure &	operator=( Cure const & rhs );
+	Cure &			operator=( Cure const & rhs );
 
 	virtual Cure*	clone() const;
-	virtual void	use(ICharacter& target);
+	virtual void	use( ICharacter& target );
 };
 
 #endif

@@ -11,16 +11,16 @@ class MateriaSource : public IMateriaSource {
 	public :
 
 								MateriaSource();
-								MateriaSource(MateriaSource const & src);
+								MateriaSource( MateriaSource const & src );
 		virtual					~MateriaSource();
 
-		virtual void			learnMateria(AMateria*);
-		virtual AMateria *		createMateria(std::string const & type);
-		virtual MateriaSource &	operator=(MateriaSource const & rhs);
+		virtual void			learnMateria( AMateria* );
+		virtual AMateria *		createMateria( std::string const & type );
+		virtual MateriaSource &	operator=( MateriaSource const & rhs );
 	
 	private :
 
-		Inventory inv;
+		Inventory 				inv;
 };
 
 # endif

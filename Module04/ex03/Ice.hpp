@@ -8,14 +8,14 @@ class Ice : public AMateria {
 
 public:
 
-	Ice( void );
-	Ice( Ice const & src );
-	virtual ~Ice( void );
+					Ice();
+					Ice( Ice const & src );
+	virtual 		~Ice();
 
-	Ice &	operator=( Ice const & rhs );
+	Ice &			operator=( Ice const & rhs );
 
-	virtual Ice*	clone() const;
-	virtual void	use(ICharacter& target);
+	virtual Ice *	clone() const;
+	virtual void	use( ICharacter& target );
 };
 
 #endif

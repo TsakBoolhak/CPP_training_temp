@@ -1,9 +1,11 @@
 #include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
 #include <iostream>
 
 WrongCat::WrongCat( void ) : WrongAnimal() {
 
 	this->type = "WrongCat";
+
 	std::cout << this->type << " : Default WrongCat constructor called" << std::endl;
 
 	return ;

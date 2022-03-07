@@ -34,12 +34,14 @@ std::string const &	Character::getName() const {
 void	Character::equip(AMateria* m) {
 
 	this->inv.equip(m);
+
 	return ;
 }
 
 void	Character::unequip(int idx) {
 
 	this->inv.unequip(idx);
+
 	return ;
 }
 

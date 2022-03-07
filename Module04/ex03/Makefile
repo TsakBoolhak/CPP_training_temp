@@ -14,7 +14,7 @@ NAME		= Materias
 
 CC			= c++
 
-CFLAGS		= -MMD -MD -Wall -Wextra -Werror -std=c++98 -g3 -I.
+CFLAGS		= -MMD -Wall -Wextra -Werror -std=c++98 -g3 -I.
 
 RM			= rm -f
 

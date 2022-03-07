@@ -10,21 +10,21 @@ class AMateria {
 
 protected:
 
-	AMateria( void );
-	AMateria( AMateria const & src );
-	std::string		type;
+						AMateria();
+						AMateria( AMateria const & src );
+	std::string			type;
 
 public:
 
-	AMateria( std::string const & type );
-	virtual ~AMateria( void );
+						AMateria( std::string const & type );
+	virtual 			~AMateria( void );
 
-	AMateria &	operator=( AMateria const & rhs );
+	AMateria &			operator=( AMateria const & rhs );
 
-	std::string const & getType() const; //Returns the materia type
+	std::string const & getType() const;
 
-	virtual AMateria* clone() const = 0;
-	virtual void	use(ICharacter& target);
+	virtual AMateria * 	clone() const = 0;
+	virtual void		use(ICharacter& target);
 };
 
 #endif

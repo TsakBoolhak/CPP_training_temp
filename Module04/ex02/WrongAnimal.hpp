@@ -7,19 +7,19 @@ class WrongAnimal {
 
 public :
 
-	WrongAnimal( void );
-	WrongAnimal( WrongAnimal const & src );
-	~WrongAnimal( void );
+						WrongAnimal();
+						WrongAnimal( WrongAnimal const & src );
+						~WrongAnimal();
 
-	void	makeSound() const;
+	void				makeSound() const;
 
 	std::string const & getType() const;
 
-	WrongAnimal &	operator=( WrongAnimal const & rhs );
+	WrongAnimal &		operator=( WrongAnimal const & rhs );
 
 protected :
 
-	std::string		type;
+	std::string			type;
 
 };
 

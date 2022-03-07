@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Brain.hpp"
 
-Brain::Brain( void ) : ideasCount (0) {
+Brain::Brain() : ideasCount (0) {
 
 	std::cout << "Brain default constructor called" << std::endl;
 
@@ -18,7 +18,7 @@ Brain::Brain( Brain const & src ) {
 	return ;
 }
 
-Brain::~Brain( void ) {
+Brain::~Brain() {
 
 	std::cout << "Brain destructor called" << std::endl;
 
@@ -78,10 +78,12 @@ void	Brain::clearIdeas() {
 	size_t	i = this->ideasCount;
 
 	while (i > 0) {
+
 		this->deleteIdea(0);
 		i--;
 	}
-	this->ideasCount = 0;
+
+	return ;
 }
 
 size_t	Brain::getIdeasCount() const {
@@ -104,6 +106,7 @@ Brain &	Brain::operator=( Brain const & rhs ) {
 	if (this != &rhs) {
 
 		this->ideasCount = rhs.ideasCount;
+
 		for ( size_t i = 0 ; i < this->ideasCount ; i++ )
 			(this->ideas)[i] = (rhs.ideas)[i];
 	}
