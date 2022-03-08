@@ -68,7 +68,11 @@ void	Inventory::use( int idx, ICharacter& target ) const {
 
 	if ( idx >= 0 && idx < INVENTORY_SIZE && this->materias[idx] != NULL )
 		this->materias[idx]->use(target);
-
+	else if ( idx >= 0 && idx < INVENTORY_SIZE )
+		std::cout << "No Materia equipped on this inventory slot" << std::endl;
+	else
+		std::cout << "You tried to use a wrong index of inventory" << std::endl;
+		
 	return ;
 }
 
