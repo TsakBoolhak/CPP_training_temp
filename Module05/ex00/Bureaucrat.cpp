@@ -1,3 +1,6 @@
+#include "Bureaucrat.hpp"
+#include <iostream>
+#include <string>
 
 const char *	Bureaucrat::GradeTooHighException::what() const throw() {
 
@@ -9,39 +12,79 @@ const char *	Bureaucrat::GradeTooLowException::what() const throw() {
 	return "Grade is tow low! (valid grades range : 150 - 1)";
 }
 
-Bureaucrat::Bureaucrat() : _grade ( 150 ), _name ( "Default Bureaucrat" ) {
+Bureaucrat::Bureaucrat() : _name ( "Default Bureaucrat" ), _grade ( 150 ) {
 
 	return;
 }
 
-Bureaucrat::Bureaucrat(std::string const & name, unsigned int grade) : _name ( name ) {
+Bureaucrat::Bureaucrat(std::string const & name, unsigned int const grade) : _name ( name ) {
 
 	if ( grade < 1 )
-		throw ( this->GradeTooHighException );
+		throw( Bureaucrat::GradeTooHighException() );
 	else if ( grade > 150 )
-		throw ( this->GradeTooLowException );
+		throw( Bureaucrat::GradeTooLowException() );
 	else
 		this->_grade = grade;
 
 	return;
 }
-						Bureaucrat( Bureaucrat const & src );
-			 			~Bureaucrat();
 
-	const std::string &	getName() const;
-	const unsigned int	getGrade() const;
-	void				incrementGrade();
-	void				decrementGrade();
+Bureaucrat::Bureaucrat( Bureaucrat const & src ) : _name ( src._name ) {
 
-	Bureaucrat &		operator=( Bureaucrat const & rhs );
+	*this = src;
 
-private :
+	return;
+}
 
-	const std::string	_name;
-	unsigned int		_grade;
+Bureaucrat::~Bureaucrat() {
 
-};
+	return;
+}
 
-ostream	&				operator<<(ostream & os, Bureaucrat const & rhs);
+const std::string &	Bureaucrat::getName() const {
 
-#endif
+	return this->_name;
+}
+
+unsigned int	Bureaucrat::getGrade() const {
+
+	return this->_grade;	
+}
+
+void	Bureaucrat::incrementGrade() {
+
+	if ( this->_grade == 1 )
+		throw( Bureaucrat::GradeTooHighException() );
+
+	this->_grade--;
+
+	return;
+}
+
+void	Bureaucrat::decrementGrade() {
+
+	if ( this->_grade == 150 )
+		throw( Bureaucrat::GradeTooLowException() );
+
+	this->_grade++;
+
+	return;
+}
+
+Bureaucrat &	Bureaucrat::operator=( Bureaucrat const & rhs ) {
+
+	if ( this != &rhs ) {
+
+//		*(std::string *)(&this->_name) = rhs._name;
+		this->_grade = rhs._grade;
+	}
+
+	return *this;
+}
+
+std::ostream	&	operator<<(std::ostream & os, Bureaucrat const & rhs) {
+
+	os << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+
+	return os;
+}
