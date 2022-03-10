@@ -1,11 +1,12 @@
 SRCS		=	main.cpp \
+				Form.cpp \
 				Bureaucrat.cpp
 
 OBJS		= ${SRCS:.cpp=.o}
 
 DEP			= ${OBJS:.o=.d}
 
-NAME		= Bureaucratv1
+NAME		= Bureaucratv2
 
 CC			= c++
 

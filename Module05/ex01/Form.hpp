@@ -5,6 +5,8 @@
 # include <string>
 # include "Bureaucrat.hpp"
 
+class	Bureaucrat;
+
 class Form {
 
 public :
@@ -32,10 +34,10 @@ public :
 	const std::string &		getName() const;
 	unsigned int			getSigningGrade() const;
 	unsigned int			getExecutingGrade() const;
-	bool					getSigned() const;
-	void					beSigned(Bureaucrat const & signingBureaucrat);
+	bool					getIsSigned() const;
+	bool					beSigned(Bureaucrat const & signingBureaucrat);
 
-	Form &		operator=( Form const & rhs );
+	Form &					operator=( Form const & rhs );
 
 private :
 

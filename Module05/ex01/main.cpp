@@ -1,90 +1,146 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 int	main() {
 
-	Bureaucrat	Bob( "Bob", 150 );
-	Bureaucrat	Bob2(Bob);
-	Bureaucrat	John("John", 5);
+	Bureaucrat	beginner( "Beginner", 150 );
+	Bureaucrat	intermediate( "Intermediate", 75 );
+	Bureaucrat	pro( "Pro", 1 );
 
-	std::cout << John << std::endl;
-
-	std::cout << std::endl;
-
-	John = Bob;
-
-	std::cout << Bob << std::endl;
-	std::cout << Bob2 << std::endl;
-	std::cout << John << std::endl;
+	std::cout << beginner << std::endl;
+	std::cout << intermediate << std::endl;
+	std::cout << pro << std::endl;
 
 	std::cout << std::endl;
 
+	std::cout << "----------------------------------------------------------------------------" << std::endl;
+	{
+		Form		noobForm( "Noob Form", 150, 150 );
+		Form		midForm( "Mid Form", 75, 75 );
+		Form		proForm( "Pro Form", 1, 1 );
+
+		std::cout << noobForm << std::endl;
+		std::cout << midForm << std::endl;
+		std::cout << proForm << std::endl;
+
+		std::cout << std::endl;
+
+		beginner.signForm( noobForm );
+		beginner.signForm( midForm );
+		beginner.signForm( proForm );
+		beginner.signForm( noobForm );
+
+		std::cout << std::endl;
+
+		std::cout << noobForm << std::endl;
+		std::cout << midForm << std::endl;
+		std::cout << proForm << std::endl;
+	}
+
+	std::cout << "----------------------------------------------------------------------------" << std::endl;
+
+	std::cout << std::endl;
+
+	std::cout << "----------------------------------------------------------------------------" << std::endl;
+	{
+		Form		noobForm( "Noob Form", 150, 150 );
+		Form		midForm( "Mid Form", 75, 75 );
+		Form		proForm( "Pro Form", 1, 1 );
+
+		std::cout << noobForm << std::endl;
+		std::cout << midForm << std::endl;
+		std::cout << proForm << std::endl;
+
+		std::cout << std::endl;
+
+		intermediate.signForm( noobForm );
+		intermediate.signForm( midForm );
+		intermediate.signForm( proForm );
+		intermediate.signForm( noobForm );
+
+		std::cout << std::endl;
+
+		std::cout << noobForm << std::endl;
+		std::cout << midForm << std::endl;
+		std::cout << proForm << std::endl;
+	}
+
+	std::cout << "----------------------------------------------------------------------------" << std::endl;
+
+	std::cout << std::endl;
+
+	std::cout << "----------------------------------------------------------------------------" << std::endl;
+	{
+		Form		noobForm( "Noob Form", 150, 150 );
+		Form		midForm( "Mid Form", 75, 75 );
+		Form		proForm( "Pro Form", 1, 1 );
+
+		std::cout << noobForm << std::endl;
+		std::cout << midForm << std::endl;
+		std::cout << proForm << std::endl;
+
+		std::cout << std::endl;
+
+		pro.signForm( noobForm );
+		pro.signForm( midForm );
+		pro.signForm( proForm );
+		pro.signForm( noobForm );
+
+		std::cout << std::endl;
+
+		std::cout << noobForm << std::endl;
+		std::cout << midForm << std::endl;
+		std::cout << proForm << std::endl;
+	}
+
+	std::cout << "----------------------------------------------------------------------------" << std::endl;
+
+	std::cout << std::endl;
+
+	std::cout << "now let's try to create a form with a signing grade too high" << std::endl;
 	try {
 
-		std::cout << Bob << std::endl;
-		std::cout << "Let's try to decrement Bob" << std::endl;
-		Bob.decrementGrade();
+		Form	Error("lol", 0, 150);
 	}
-	catch (std::exception & e) {
+	catch ( std::exception & e) {
 
 		std::cout << e.what() << std::endl;
 	}
-
 	std::cout << std::endl;
 
-	std::cout << "Let's increment Bob until it fails" << std::endl;
+	std::cout << "now let's try to create a form with an executing grade too high" << std::endl;
 	try {
-		for (size_t i = 0 ; i < 500 ; i++) {
 
-
-			std::cout << Bob2 << std::endl;
-			Bob2.incrementGrade();
-		}
+		Form	Error("lol", 150, 0);
 	}
-	catch (std::exception & e) {
+	catch ( std::exception & e) {
 
 		std::cout << e.what() << std::endl;
 	}
-
 	std::cout << std::endl;
 
-	std::cout << "Let's decrement Bob until it fails" << std::endl;
+	std::cout << "now let's try to create a form with a signing grade too low" << std::endl;
 	try {
-		for (size_t i = 0 ; i < 500 ; i++) {
 
-
-			std::cout << Bob2 << std::endl;
-			Bob2.decrementGrade();
-		}
+		Form	Error("lol", 151, 150);
 	}
-	catch (std::exception & e) {
+	catch ( std::exception & e) {
 
 		std::cout << e.what() << std::endl;
 	}
-
 	std::cout << std::endl;
 
-	std::cout << "Let's try to create a Bureaucrat with a grade too high (0)" << std::endl;
+	std::cout << "now let's try to create a form with an executing grade too low" << std::endl;
 	try {
 
-		Bureaucrat	Joe("Joe", 0);
+		Form	Error("lol", 150, 151);
 	}
-	catch (std::exception & e) {
+	catch ( std::exception & e) {
 
 		std::cout << e.what() << std::endl;
 	}
-
 	std::cout << std::endl;
-
-	std::cout << "Let's try to create a Bureaucrat with a grade too low (0)" << std::endl;
-	try {
-
-		Bureaucrat	Bill("Bill", 151);
-	}
-	catch (std::exception & e) {
-
-		std::cout << e.what() << std::endl;
-	}
 
 	return 0;
 }

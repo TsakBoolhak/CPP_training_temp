@@ -3,6 +3,9 @@
 
 # include <iostream>
 # include <string>
+# include "Form.hpp"
+
+class	Form;
 
 class Bureaucrat {
 
@@ -24,7 +27,7 @@ public :
 
 	};
 
-						Bureaucrat(std::string const & name, unsigned int const grade);
+						Bureaucrat( std::string const & name, unsigned int const grade );
 						Bureaucrat( Bureaucrat const & src );
 			 			~Bureaucrat();
 
@@ -32,6 +35,7 @@ public :
 	unsigned int		getGrade() const;
 	void				incrementGrade();
 	void				decrementGrade();
+	void				signForm( Form & formToSign );
 
 	Bureaucrat &		operator=( Bureaucrat const & rhs );
 

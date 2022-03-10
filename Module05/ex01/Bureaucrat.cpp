@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 #include <string>
 
@@ -69,6 +70,30 @@ void	Bureaucrat::decrementGrade() {
 	this->_grade++;
 
 	return;
+}
+
+void	Bureaucrat::signForm( Form & formToSign ) {
+
+	bool check;
+
+	std::cout << this->_name;
+	try
+	{
+		check = formToSign.beSigned( *this );
+	}
+	catch (std::exception & e) {
+
+		std::cout << " couldn't sign " << formToSign.getName() << " because " << e.what() << std::endl;
+
+		return;
+	}
+
+	if ( check == false )
+		std::cout << " couldn't sign " << formToSign.getName() << " because it was already signed." << std::endl;
+	else
+		std::cout << " signed " << formToSign.getName() << std::endl;
+
+	return ;
 }
 
 Bureaucrat &	Bureaucrat::operator=( Bureaucrat const & rhs ) {
