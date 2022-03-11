@@ -5,12 +5,12 @@
 
 const char *	Bureaucrat::GradeTooHighException::what() const throw() {
 
-	return "Grade is tow high! (valid grades range : 150 - 1)";
+	return "Bureaucrat's grade is tow high!";
 }
 
 const char *	Bureaucrat::GradeTooLowException::what() const throw() {
 
-	return "Grade is tow low! (valid grades range : 150 - 1)";
+	return "Bureaucrat's grade is tow low!";
 }
 
 Bureaucrat::Bureaucrat() : _name ( "Default Bureaucrat" ), _grade ( 150 ) {
@@ -54,7 +54,7 @@ unsigned int	Bureaucrat::getGrade() const {
 
 void	Bureaucrat::incrementGrade() {
 
-	if ( this->_grade == 1 )
+	if ( this->_grade <= 1 )
 		throw( Bureaucrat::GradeTooHighException() );
 
 	this->_grade--;
@@ -64,7 +64,7 @@ void	Bureaucrat::incrementGrade() {
 
 void	Bureaucrat::decrementGrade() {
 
-	if ( this->_grade == 150 )
+	if ( this->_grade >= 150 )
 		throw( Bureaucrat::GradeTooLowException() );
 
 	this->_grade++;
@@ -120,7 +120,7 @@ Bureaucrat &	Bureaucrat::operator=( Bureaucrat const & rhs ) {
 	return *this;
 }
 
-std::ostream	&	operator<<(std::ostream & os, Bureaucrat const & rhs) {
+std::ostream	&	operator<<( std::ostream & os, Bureaucrat const & rhs ) {
 
 	os << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
 

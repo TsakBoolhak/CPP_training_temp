@@ -13,9 +13,8 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src ) : Form( "robotomy request", 72, 45 ), _target ( "default target" ) {
+ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src ) : Form( src.getName(), src.getSigningGrade(), src.getExecutingGrade() ), _target ( src._target ) {
 
-	(void)src;
 	return ;
 }
 

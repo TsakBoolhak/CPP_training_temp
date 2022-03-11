@@ -8,18 +8,18 @@ class RobotomyRequestForm : public Form {
 
 	public :
 
-	RobotomyRequestForm( std::string const & target );
-	~RobotomyRequestForm();
+							RobotomyRequestForm( std::string const & target );
+							~RobotomyRequestForm();
 
-	virtual void	executeAction() const;
+	virtual void			executeAction() const;
 
 	private :
 
-	RobotomyRequestForm();
-	RobotomyRequestForm( RobotomyRequestForm const & src);
+							RobotomyRequestForm();
+							RobotomyRequestForm( RobotomyRequestForm const & src );
 	RobotomyRequestForm &	operator=( RobotomyRequestForm const & rhs );
 
-	const std::string	_target;
+	const std::string		_target;
 };
 
 #endif

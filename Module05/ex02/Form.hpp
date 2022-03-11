@@ -36,30 +36,30 @@ public :
 	};
 
 							Form( std::string const & name, unsigned int const signingGrade, unsigned int const executingGrade );
-							Form( Form const & src );
 	virtual					~Form();
 
 	const std::string &		getName() const;
 	unsigned int			getSigningGrade() const;
 	unsigned int			getExecutingGrade() const;
 	bool					getIsSigned() const;
-	bool					beSigned(Bureaucrat const & signingBureaucrat);
-	void					execute(Bureaucrat const & executor) const;
+	bool					beSigned( Bureaucrat const & signingBureaucrat );
+	void					execute( Bureaucrat const & executor ) const;
 	virtual void			executeAction() const = 0;
 
-	Form &					operator=( Form const & rhs );
 
 private :
 
 							Form();
+							Form( Form const & src );
 
 	const std::string		_name;
 	bool					_isSigned;
 	const unsigned int		_signingGrade;
 	const unsigned int		_executingGrade;
 
+	Form &					operator=( Form const & rhs );
 };
 
-std::ostream	&			operator<<(std::ostream & os, Form const & rhs);
+std::ostream	&			operator<<( std::ostream & os, Form const & rhs );
 
 #endif

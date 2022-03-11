@@ -7,9 +7,8 @@ PresidentialPardonForm::PresidentialPardonForm( std::string const & target ) : F
 	return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ) : Form( "presidential pardon", 25, 5 ), _target ( "default target" ) {
+PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ) : Form( src.getName(), src.getSigningGrade(), src.getExecutingGrade() ), _target ( src._target ) {
 
-	(void)src;
 	return ;
 }
 

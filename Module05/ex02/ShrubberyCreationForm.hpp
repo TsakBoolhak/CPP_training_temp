@@ -3,6 +3,7 @@
 
 # include <string>
 # include "Form.hpp"
+
 # define SHRUBBERY_TREE "" \
 "      ,%%%%%%%%%,\n" \
 "     %%o%%//%%%%%%\n" \
@@ -22,19 +23,19 @@ class ShrubberyCreationForm : public Form {
 
 	public :
 
-	ShrubberyCreationForm( std::string const & target );
-	~ShrubberyCreationForm();
+							ShrubberyCreationForm( std::string const & target );
+							~ShrubberyCreationForm();
 
-	virtual void	executeAction() const;
+	virtual void			executeAction() const;
 
 
 	private :
 
-	ShrubberyCreationForm();
-	ShrubberyCreationForm( ShrubberyCreationForm const & src);
+							ShrubberyCreationForm();
+							ShrubberyCreationForm( ShrubberyCreationForm const & src );
 	ShrubberyCreationForm &	operator=( ShrubberyCreationForm const & rhs );
 
-	const std::string	_target;
+	const std::string		_target;
 };
 
 #endif

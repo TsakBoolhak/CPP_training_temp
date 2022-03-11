@@ -5,12 +5,12 @@
 
 const char *	Form::GradeTooHighException::what() const throw() {
 
-	return "Grade is tow high!";
+	return "Form's grade is tow high!";
 }
 
 const char *	Form::GradeTooLowException::what() const throw() {
 
-	return "Grade is tow low!";
+	return "Form's grade is tow low!";
 }
 
 const char *	Form::FormNotSignedException::what() const throw() {
@@ -23,7 +23,7 @@ Form::Form() : _name ( "Default Form" ), _isSigned ( false ), _signingGrade ( 15
 	return;
 }
 
-Form::Form(std::string const & name, unsigned int const signingGrade, unsigned int const executingGrade) : _name ( name ), _isSigned ( false ), _signingGrade ( signingGrade ), _executingGrade ( executingGrade ) {
+Form::Form( std::string const & name, unsigned int const signingGrade, unsigned int const executingGrade ) : _name ( name ), _isSigned ( false ), _signingGrade ( signingGrade ), _executingGrade ( executingGrade ) {
 
 	if ( signingGrade < 1 )
 		throw( Form::GradeTooHighException() );
@@ -68,10 +68,10 @@ bool	Form::getIsSigned() const {
 	return this->_isSigned;
 }
 
-bool	Form::beSigned(Bureaucrat const & signingBureaucrat) {
+bool	Form::beSigned( Bureaucrat const & signingBureaucrat ) {
 
 	if ( signingBureaucrat.getGrade() > this->_signingGrade )
-		throw( Form::GradeTooLowException() );
+		throw( Bureaucrat::GradeTooLowException() );
 
 	if ( this->_isSigned == true )
 		return false;
@@ -81,12 +81,12 @@ bool	Form::beSigned(Bureaucrat const & signingBureaucrat) {
 	return true;
 }
 
-void	Form::execute(Bureaucrat const & executor) const {
+void	Form::execute( Bureaucrat const & executor ) const {
 
 	if ( this->getIsSigned() == false )
 		throw ( Form::FormNotSignedException() );
-	else if ( executor.getGrade() > this->_signingGrade )
-		throw ( Form::GradeTooHighException() );
+	else if ( executor.getGrade() > this->_executingGrade )
+		throw ( Bureaucrat::GradeTooLowException() );
 
 	this->executeAction();
 
@@ -99,7 +99,7 @@ Form &	Form::operator=( Form const & rhs ) {
 	return *this;
 }
 
-std::ostream	&	operator<<(std::ostream & os, Form const & rhs) {
+std::ostream	&	operator<<( std::ostream & os, Form const & rhs ) {
 
 	std::string isSigned;
 

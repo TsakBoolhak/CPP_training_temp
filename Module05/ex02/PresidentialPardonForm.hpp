@@ -8,16 +8,16 @@ class PresidentialPardonForm : public Form {
 
 	public :
 
-	PresidentialPardonForm( std::string const & target );
-	~PresidentialPardonForm();
+						PresidentialPardonForm( std::string const & target );
+						~PresidentialPardonForm();
 
-	virtual void	executeAction() const;
+	virtual void		executeAction() const;
 
 	private :
 
-	PresidentialPardonForm();
-	PresidentialPardonForm( PresidentialPardonForm const & src);
-	PresidentialPardonForm &	operator=( PresidentialPardonForm const & rhs );
+						PresidentialPardonForm();
+						PresidentialPardonForm( PresidentialPardonForm const & src );
+						PresidentialPardonForm &	operator=( PresidentialPardonForm const & rhs );
 
 	const std::string	_target;
 };

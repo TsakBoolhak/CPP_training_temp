@@ -11,10 +11,9 @@ RobotomyRequestForm::RobotomyRequestForm( std::string const & target ) : Form( "
 	return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) : Form( "robotomy request", 72, 45 ), _target ( "default target" ) {
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) : Form( src.getName(), src.getSigningGrade(), src.getExecutingGrade() ), _target ( src._target ) {
 
 	std::srand( std::time( NULL ) );
-	(void)src;
 	return ;
 }
 
