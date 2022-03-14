@@ -48,10 +48,10 @@ void	ScalType::displayConversions() const {
 	std::cout << "char: ";
 	if ( this->_type == ISIMPOSSIBLE )
 		std::cout << "impossible";
-	else if ( this->_outOfRange[ISCHAR] == true )
-		std::cout << "Out of char's range";
 	else if ( this->_specialFloatValues == true )
 		std::cout << "impossible";
+	else if ( this->_outOfRange[ISCHAR] == true )
+		std::cout << "Out of char's range";
 	else if ( this->_nonDisplayableChar == true )
 		std::cout << "Non displayable";
 	else
@@ -61,10 +61,10 @@ void	ScalType::displayConversions() const {
 	std::cout << "int: ";
 	if ( this->_type == ISIMPOSSIBLE )
 		std::cout << "impossible";
-	else if ( this->_outOfRange[ISINT] == true )
-		std::cout << "Out of int's range";
 	else if ( this->_specialFloatValues == true )
 		std::cout << "impossible";
+	else if ( this->_outOfRange[ISINT] == true )
+		std::cout << "Out of int's range";
 	else
 		std::cout << this->_i;
 	std::cout << std::endl;
