@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cerrno>
 #include <limits>
+#include <cmath>
 
 ScalType::ScalType( char const * str ) : _toConv ( str ), _type (ScalType::ISIMPOSSIBLE), _c (0), _i (0), _f (0.f), _d (0.) {
  	_outOfRange[ISCHAR] = false;
@@ -16,19 +17,19 @@ ScalType::ScalType( char const * str ) : _toConv ( str ), _type (ScalType::ISIMP
 	switch (this->_type) {
 
 		case ISCHAR :
-			std::cout << "IT'S A CHAR" << std::endl;
+			std::cout << "Converting from char :" << std::endl;
 			break;
 		case ISINT :
-			std::cout << "IT'S AN INT" << std::endl;
+			std::cout << "Converting from int :" << std::endl;
 			break;
 		case ISFLOAT :
-			std::cout << "IT'S A FLOAT" << std::endl;
+			std::cout << "Converting from float :" << std::endl;
 			break;
 		case ISDOUBLE :
-			std::cout << "IT'S A DOUBLE" << std::endl;
+			std::cout << "Converting from double :" << std::endl;
 			break;
 		case ISIMPOSSIBLE :
-			std::cout << "IT'S IMPOSSIBLE" << std::endl;
+			std::cout << "Convertion unknown :" << std::endl;
 			break;
 	}
 	this->convToInt();
@@ -79,8 +80,10 @@ void	ScalType::displayConversions() const {
 	else {
 
 		std::cout << this->_f;
-		if (this->_specialFloatValues == true)
-			std::cout << "f";
+		double intpart;
+		if ( this->_specialFloatValues == false && std::modf( static_cast<double>(this->_f),  &intpart ) == 0. )
+			std::cout << ".0";
+		std::cout << "f";
 	}
 	std::cout << std::endl;
 
@@ -91,8 +94,13 @@ void	ScalType::displayConversions() const {
 		std::cout << "Couldnt cast from int cause the int was invalid";
 	else if ( this->_outOfRange[ISDOUBLE] == true )
 		std::cout << "Out of double's range";
-	else
+	else {
+
+		double	intpart;
 		std::cout << this->_d;
+		if ( this->_specialFloatValues == false && std::modf( this->_d,  &intpart ) == 0. )
+			std::cout << ".0";
+	}
 	std::cout << std::endl;
 
 	return ;
