@@ -24,7 +24,7 @@ public :
 
 	};
 
-						Bureaucrat(std::string const & name, unsigned int const grade);
+						Bureaucrat( std::string const & name, unsigned int const grade );
 						Bureaucrat( Bureaucrat const & src );
 			 			~Bureaucrat();
 
@@ -43,6 +43,6 @@ private :
 
 };
 
-std::ostream	&				operator<<(std::ostream & os, Bureaucrat const & rhs);
+std::ostream	&				operator<<( std::ostream & os, Bureaucrat const & rhs );
 
 #endif

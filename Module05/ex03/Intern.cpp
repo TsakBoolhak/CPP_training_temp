@@ -4,7 +4,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
-#define CALL_MEMBER_FN(object,ptrToMember) ((object).*(ptrToMember))
 
 Intern::Intern() {
 
@@ -44,7 +43,7 @@ Form *	Intern::makeForm( std::string const & name, std::string const & target ) 
 		i++;
 	}
 	
-	return ( (*this).*(newForm[i]))(name, target);
+	return ( this->*(newForm[i]) )( name, target );
 }
 
 Form *	Intern::newShrub( std::string const & name, std::string const & target ) {

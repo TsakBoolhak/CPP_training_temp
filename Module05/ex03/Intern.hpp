@@ -8,16 +8,16 @@ class Intern {
 
 	public :
 
-									Intern();
-									~Intern();
+					Intern();
+					~Intern();
 
-		Form *						makeForm( std::string const & name, std::string const & target );
+		Form *		makeForm( std::string const & name, std::string const & target );
 
-		Intern &					operator=( Intern const & rhs );
+		Intern &	operator=( Intern const & rhs );
 
 	private :
 
-									Intern( Intern const & src );
+					Intern( Intern const & src );
 
 		Form *		newShrub( std::string const & name, std::string const & target );
 		Form *		newRob( std::string const & name, std::string const & target );
@@ -25,6 +25,7 @@ class Intern {
 		Form *		wrongName( std::string const & name, std::string const & target );
 
 		typedef Form* (Intern::*funcPtr)(std::string const &, std::string const &);
+
 		funcPtr	newForm[4];
 };
 

@@ -47,6 +47,6 @@ private :
 
 };
 
-std::ostream	&				operator<<(std::ostream & os, Bureaucrat const & rhs);
+std::ostream	&				operator<<( std::ostream & os, Bureaucrat const & rhs );
 
 #endif

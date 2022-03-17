@@ -35,7 +35,7 @@ public :
 	unsigned int			getSigningGrade() const;
 	unsigned int			getExecutingGrade() const;
 	bool					getIsSigned() const;
-	bool					beSigned(Bureaucrat const & signingBureaucrat);
+	bool					beSigned( Bureaucrat const & signingBureaucrat );
 
 	Form &					operator=( Form const & rhs );
 
@@ -50,6 +50,6 @@ private :
 
 };
 
-std::ostream	&			operator<<(std::ostream & os, Form const & rhs);
+std::ostream	&			operator<<( std::ostream & os, Form const & rhs );
 
 #endif

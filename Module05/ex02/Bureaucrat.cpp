@@ -18,7 +18,7 @@ Bureaucrat::Bureaucrat() : _name ( "Default Bureaucrat" ), _grade ( 150 ) {
 	return;
 }
 
-Bureaucrat::Bureaucrat(std::string const & name, unsigned int const grade) : _name ( name ) {
+Bureaucrat::Bureaucrat( std::string const & name, unsigned int const grade ) : _name ( name ) {
 
 	if ( grade < 1 )
 		throw( Bureaucrat::GradeTooHighException() );
@@ -81,7 +81,7 @@ void	Bureaucrat::signForm( Form & formToSign ) {
 	{
 		check = formToSign.beSigned( *this );
 	}
-	catch (std::exception & e) {
+	catch ( std::exception & e ) {
 
 		std::cout << " couldn't sign " << formToSign.getName() << " because " << e.what() << std::endl;
 
@@ -103,7 +103,7 @@ void	Bureaucrat::executeForm( Form const & form ) {
 		form.execute( *this );
 		std::cout << this->_name << " executed " << form.getName() << std::endl;
 	}
-	catch (std::exception & e) {
+	catch ( std::exception & e ) {
 
 		std::cout << this->_name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
 	}

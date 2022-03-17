@@ -11,33 +11,47 @@ int	main() {
 	Bureaucrat	Bill( "Bill", 1 );
 	Form *	form;
 
-	form = shitBag.makeForm("presidential pardon", "Bill");
+	std::cout << "-------------------------------------------" << std::endl;
+	form = shitBag.makeForm( "presidential pardon", "Bill" );
 	if ( form ) {
-		Bill.signForm(*form);
-		Bill.executeForm(*form);
+		Bill.signForm( *form );
+		Bill.executeForm( *form );
 		delete form;
 	}
+	std::cout << "-------------------------------------------" << std::endl;
 
-	form = shitBag.makeForm("shrubbery creation", "Bill");
-	if ( form ) {
-		Bill.signForm(*form);
-		Bill.executeForm(*form);
-		delete form;
-	}
+	std::cout << std::endl;
 
-	form = shitBag.makeForm("robotomy request", "Bill");
+	std::cout << "-------------------------------------------" << std::endl;
+	form = shitBag.makeForm( "shrubbery creation", "Bill" );
 	if ( form ) {
-		Bill.signForm(*form);
-		Bill.executeForm(*form);
+		Bill.signForm( *form );
+		Bill.executeForm( *form );
 		delete form;
 	}
+	std::cout << "-------------------------------------------" << std::endl;
 
-	form = shitBag.makeForm("fuck the hierarchy", "Bill");
+	std::cout << std::endl;
+
+	std::cout << "-------------------------------------------" << std::endl;
+	form = shitBag.makeForm( "robotomy request", "Bill" );
 	if ( form ) {
-		Bill.signForm(*form);
-		Bill.executeForm(*form);
+		Bill.signForm( *form );
+		Bill.executeForm( *form );
 		delete form;
 	}
+	std::cout << "-------------------------------------------" << std::endl;
+
+	std::cout << std::endl;
+
+	std::cout << "-------------------------------------------" << std::endl;
+	form = shitBag.makeForm( "fuck the hierarchy", "Bill" );
+	if ( form ) {
+		Bill.signForm( *form );
+		Bill.executeForm( *form );
+		delete form;
+	}
+	std::cout << "-------------------------------------------" << std::endl;
 
 	return 0;
 }

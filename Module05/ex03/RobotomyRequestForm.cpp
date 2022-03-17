@@ -6,14 +6,11 @@
 
 RobotomyRequestForm::RobotomyRequestForm( std::string const & target ) : Form( "robotomy request", 72, 45 ), _target ( target ) {
 
-	std::srand( std::time( NULL ) );
-
 	return ;
 }
 
 RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) : Form( src.getName(), src.getSigningGrade(), src.getExecutingGrade() ), _target ( src._target ) {
 
-	std::srand( std::time( NULL ) );
 	return ;
 }
 
@@ -23,6 +20,14 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
 void	RobotomyRequestForm::executeAction() const {
+
+	static bool	firstCall = true;
+
+	if ( firstCall == true ) {
+
+		std::srand( std::time( NULL ) );
+		firstCall = false;
+	}
 
 	std::cout << "BLLBLLLBLBLBLBLBLBLBLBLBLBLBLBLBLBL (loud drilling noise)" << std::endl << this->_target;
 	if ( rand() % 2 )
@@ -41,8 +46,6 @@ RobotomyRequestForm &	RobotomyRequestForm::operator=( RobotomyRequestForm const 
 }
 
 RobotomyRequestForm::RobotomyRequestForm() : Form( "shrubbery creation", 72, 45 ), _target ( "Default target" ) {
-
-	std::srand( std::time( NULL ) );
 
 	return ;
 }

@@ -63,7 +63,7 @@ bool	Form::getIsSigned() const {
 	return this->_isSigned;
 }
 
-bool	Form::beSigned(Bureaucrat const & signingBureaucrat) {
+bool	Form::beSigned( Bureaucrat const & signingBureaucrat ) {
 
 	if ( signingBureaucrat.getGrade() > this->_signingGrade )
 		throw( Form::GradeTooLowException() );
@@ -82,7 +82,7 @@ Form &	Form::operator=( Form const & rhs ) {
 	return *this;
 }
 
-std::ostream	&	operator<<(std::ostream & os, Form const & rhs) {
+std::ostream	&	operator<<( std::ostream & os, Form const & rhs ) {
 
 	std::string isSigned;
 
