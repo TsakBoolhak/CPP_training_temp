@@ -28,6 +28,6 @@ class Data {
 		std::string	_someString;
 };
 
-std::ostream &	operator<<(std::ostream & os, Data const & rhs);
+std::ostream &		operator<<( std::ostream & os, Data const & rhs );
 
 #endif

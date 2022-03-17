@@ -28,6 +28,7 @@ int	Data::getInt() const {
 
 	return this->_someInt;
 }
+
 float	Data::getFloat() const {
 
 	return this->_someFloat;
@@ -64,7 +65,7 @@ Data &	Data::operator=( Data const & rhs ) {
 	return *this;
 }
 
-std::ostream &	operator<<(std::ostream & os, Data const & rhs) {
+std::ostream &	operator<<( std::ostream & os, Data const & rhs ) {
 
 	os << "Datas : _someInt = " << rhs.getInt() << ", _someFloat = " << rhs.getFloat() << ", _someString = " << rhs.getString();
 

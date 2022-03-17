@@ -29,6 +29,7 @@ Base *	generate() {
 		case 2:
 			return new C;
 	}
+
 	return NULL;
 }
 

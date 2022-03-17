@@ -7,10 +7,10 @@ class ScalType {
 
 	public :
 
-				ScalType( char const * str );
-				~ScalType();
+					ScalType( char const * str );
+					~ScalType();
 
-		void	displayConversions() const;
+		void		displayConversions() const;
 
 	private :
 
@@ -23,14 +23,14 @@ class ScalType {
 			ISIMPOSSIBLE
 		}		t_type;
 
-		void	setType();
-		void	convToChar();
-		void	convToFloat();
-		void	convToDouble();
-		void	convToInt();
-				ScalType();
-				ScalType( ScalType const & src );
-				ScalType &	operator=( ScalType const & rhs );
+		void		setType();
+		void		convToChar();
+		void		convToFloat();
+		void		convToDouble();
+		void		convToInt();
+					ScalType();
+					ScalType( ScalType const & src );
+					ScalType &	operator=( ScalType const & rhs );
 
 		std::string	_toConv;
 		t_type		_type;

@@ -1,7 +1,5 @@
 #include "ScalType.hpp"
 #include <iostream>
-#include <string>
-#include <cstdlib>
 
 int	main(int ac, char **av) {
 
