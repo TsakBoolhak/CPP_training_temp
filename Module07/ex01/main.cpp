@@ -9,11 +9,28 @@ int	main( void ) {
 	float	floatArr[] = { 1.2f, 3.5f, 5.9f, 7.65f, std::numeric_limits<float>::max(), -10.5f, std::numeric_limits<float>::min(), 10.f };
 	std::string stringArr[] = { "one", "three", "five", "seven", "max", "minus ten", "min", "ten" };
 
-	std::cout << sizeof(intArr) << std::endl;
-	::iter( intArr, 8, ::printValue );
+	std::cout << "printing int array :" << std::endl;
+	::iter< const int >( intArr, 8, ::printValue );
 	std::cout << std::endl;
-	::iter( floatArr, 8, ::printValue );
+	std::cout << "printing float array :" << std::endl;
+	::iter< const float >( floatArr, 8, ::printValue );
 	std::cout << std::endl;
-	::iter( stringArr, 8, ::printValue );
+	std::cout << "printing string array :" << std::endl;
+	::iter< const std::string >( stringArr, 8, ::printValue );
+	std::cout << std::endl;
+	std::cout << "--resetting all arrays--" << std::endl << std::endl;
+	::iter( intArr, 8, ::resetValue );
+	::iter( floatArr, 8, ::resetValue );
+	::iter( stringArr, 8, ::resetValue );
+	std::cout << "printing int array :" << std::endl;
+	::iter< const int >( intArr, 8, ::printValue );
+	std::cout << std::endl;
+	std::cout << "printing float array :" << std::endl;
+	::iter< const float >( floatArr, 8, ::printValue );
+	std::cout << std::endl;
+	std::cout << "printing string array :" << std::endl;
+	::iter< const std::string >( stringArr, 8, ::printValue );
+	std::cout << std::endl;
+	std::cout << "END" << std::endl;
 	return 0;
 }

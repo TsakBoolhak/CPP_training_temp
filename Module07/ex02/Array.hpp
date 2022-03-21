@@ -16,12 +16,12 @@ class Array {
 				}
 		};
 
-		Array() : _size ( 0 ), _arr ( NULL ) {
+		Array() : _size ( 0 ), _arr ( new T[0]() ) {
 
 			return ;
 		}
 
-		Array( unsigned int n ) : _size ( n ), _arr ( new T[n] ) {
+		Array( unsigned int n ) : _size ( n ), _arr ( new T[n]() ) {
 
 			return ;
 		}
@@ -54,10 +54,10 @@ class Array {
 			return *this;
 		}
 
-		T &	operator[]( unsigned int n ) {
+		T &	operator[]( unsigned int n ) const {
 
 			if ( n >= this->_size )
-				throw ( Array::OutOfRangeException() );
+				throw Array::OutOfRangeException();
 
 			return this->_arr[n];
 		}
